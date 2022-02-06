@@ -1,7 +1,6 @@
 // to control devices, like output, serial, usb, ssd
 
 // piston input for KB/Mouse event intercepting. Kind of like glfw which you can use to pass to the kernel through the kernel driver interrupt (not spectrovm driver)
-struct Keyboard;
 struct Mouse;
 
 // can emulate these directly
@@ -20,3 +19,26 @@ struct PCIe;
 // you simply have a view of the screen and tell vulkan what to draw. But instead the graphics library sends out vulkan commands to the host to draw,
 // within a VM graphics window
 struct Monitor;
+
+// INPUT API
+extern crate piston;
+use piston::{input::{Button, ButtonArgs, ButtonState, Input, Key, ControllerButton, Event, ButtonEvent}, Events};
+use piston::event_loop::*;
+
+#[test]
+fn test_input() {
+    let _button_state = ButtonState::Press;
+    let _button = Button::Keyboard(Key::C);
+    let _scan_code = 3;
+
+    let _in = Input::Button(ButtonArgs {
+        state: _button_state,
+        button: _button,
+        scancode: None,
+    });
+}
+
+#[test]
+fn test_controller() {
+    let mut events = Events::new(EventSettings::new().lazy(true));
+}

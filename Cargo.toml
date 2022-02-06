@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 regex = "*"
 pistoncore-input = "1.0.1"
+piston = "0.53.0"
