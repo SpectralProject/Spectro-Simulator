@@ -2,6 +2,8 @@ use regex::Regex;
 use std::env;
 use std::io::{self, Write};
 
+// CLI for spectro VM
+// Otherwise target the library instead and use the functions for a frontend app
 fn main() {
     println!("=================\nWITHIN SPECTRO VM\n=================");
 

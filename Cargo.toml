@@ -1,11 +1,12 @@
 [package]
+edition = "2021"
 name = "spectrosim"
 version = "0.1.0"
-edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-regex = "*"
-pistoncore-input = "1.0.1"
+log = "*"
 piston = "0.53.0"
+pistoncore-input = "1.0.1"
+regex = "*"
