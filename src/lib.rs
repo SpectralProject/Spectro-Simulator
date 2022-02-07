@@ -1,11 +1,5 @@
-// BACKEND
-pub(crate) mod soc;
-pub(crate) mod cpu;
-pub(crate) mod dsp;
-pub(crate) mod gpu;
-pub(crate) mod nic;
-pub(crate) mod ram;
-pub(crate) mod crypto;
+// BACKEND (model)
+pub mod hardware;
 
 // drivers
 pub mod drivers;
@@ -13,4 +7,10 @@ pub mod drivers;
 // vm
 pub mod vm;
 
-// FRONTEND
+// FRONTEND (controller) staticlib
+// expose functions for frontend
+pub struct VMController;
+
+impl VMController {
+    
+}

@@ -1,9 +1,9 @@
-use crate::cpu::CPUCluster;
-use crate::crypto::CryptoModule;
-use crate::dsp::DSPCore;
-use crate::gpu::GPUChip;
-use crate::nic::NetworkChip;
-use crate::ram::SDRAMChip;
+use super::cpu::CPUCluster;
+use super::crypto::CryptoModule;
+use super::dsp::DSPCore;
+use super::gpu::GPUChip;
+use super::nic::NetworkChip;
+use super::ram::SDRAMChip;
 
 pub struct Soc {
     core_cluster: CPUCluster,

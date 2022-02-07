@@ -33,7 +33,7 @@ impl ALU {
     }
 }
 
-use crate::ram::SRAMChip;
+use super::ram::SRAMChip;
 pub struct CPUCache {
     sram: SRAMChip,
 }
