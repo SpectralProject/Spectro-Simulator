@@ -48,3 +48,9 @@ fn process_input() {
         std::process::exit(0);
     }
 }
+
+fn bios_options() {
+    // secure boot
+    
+    // load 
+}

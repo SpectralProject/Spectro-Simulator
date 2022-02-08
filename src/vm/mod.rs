@@ -1,4 +1,5 @@
 // VM
+pub mod vm;
 
 pub struct SpectroVM;
 
