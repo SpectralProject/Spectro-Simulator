@@ -1,10 +1,18 @@
 import { Text, Flex, Spacer, Box, Image } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-
-// const SpectroLogo = "../../public/img/SpectroLogo.png"
-// import '../../public/img/SpectroLogo.png'
+import React from 'react'
+import { useRouter } from 'next/router'
 
 const ArcbootMain: NextPage = () => {
+    const [loaded, setLoaded] = React.useState(false)
+    const router = useRouter()
+
+    const redirectKernel = () => {
+        router.push("../kernel")
+    }
+    // set loaded after 10s
+    // setTimeout(() => setLoaded(true), 10000)
+
     return (
         <>
             <Flex flexDir="column" justifyContent="space-between" h="100vh">
@@ -35,6 +43,9 @@ const ArcbootMain: NextPage = () => {
                         Finding multiboot compliant kernel images - 100% [Found 1]<br />
                         <Spacer mb="1rem" />
                         Loading OS [Quantii] - 99%
+                        {
+                            loaded && redirectKernel()
+                        }
                     </Flex>
                 </Flex>
 
