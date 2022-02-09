@@ -2,7 +2,7 @@ import { Text, Flex, Spacer, Box } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import SpectroLogo from "../public/img/SpectroLogo.png"
 
-const Main: NextPage = () => {
+const BiosMain: NextPage = () => {
     return (
         <>
             <Flex flexDir="column">
@@ -41,4 +41,4 @@ const Main: NextPage = () => {
     )
 }
 
-export default Main
+export default BiosMain
