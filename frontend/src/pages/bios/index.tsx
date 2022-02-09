@@ -1,5 +1,6 @@
 import { Text, Flex, Spacer, Box } from '@chakra-ui/react'
 import type { NextPage } from 'next'
+import SpectroLogo from "../public/img/SpectroLogo.png"
 
 const Main: NextPage = () => {
     return (
