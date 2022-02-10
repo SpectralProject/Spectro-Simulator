@@ -8,7 +8,7 @@ const ArcbootMain: NextPage = () => {
     const router = useRouter()
 
     const redirectKernel = () => {
-        router.push("../kernel")
+        router.push("kernel")
     }
     // set loaded after 10s
     // setTimeout(() => setLoaded(true), 10000)
