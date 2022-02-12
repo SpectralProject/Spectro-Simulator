@@ -16,3 +16,25 @@ impl SpectroVM {
 // given an instruction that causes an interrupt of code X, search the GDT entry X and hand execution to that entry. If that entry is not found, raise a double fault by going to the double fault entry
 // if the double fault entry is not found, raise a triple fault. This fault is always defined simply "shut down" or "reset" the system. You can hard code it into the CPU/VM the triple fault
 // usually the triple fault is handled by the motherboard firmware. So this can be simulated by the VM
+
+// ----------
+// SIMULATOR
+// ----------
+
+// given instruction, update registers and memory (technically cache but for now just update RAM each time
+fn handle_operation(instruction: u32) {
+    // instruction: 4 types
+    // opcode: 8bits
+    // src, dst, immediate: variable
+
+    // 1. check instruction format based on opcode
+
+    // 2. split into instruction keyword, src, dst
+
+    // 3. execute instruction by updating reg/memory, etc
+}
+
+#[test]
+fn test_handler() {
+    handle_operation(0x0);
+}
