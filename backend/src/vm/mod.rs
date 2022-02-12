@@ -21,6 +21,43 @@ impl SpectroVM {
 // SIMULATOR
 // ----------
 
+use object::*;
+use std::error::Error;
+use std::fs;
+
+// given file data (binary/byte), check if headers (magic number, executable, 64bit, little endian, riscv), program headers (right format, entries)
+// code (no 32bit code in the text section is of the wrong format)
+// other sections (section header for libraries), heap/.bss or something are in the right format and we can parse their labels and values and make space for those static variables
+fn check_valid_elf64(file_path: &str) -> bool {
+    // read file
+    let bin_data = match fs::read(file_path) {
+        Ok(file) => file,
+        Err(err) => {
+            println!("Failed to open file");
+            return false;
+        }
+    };
+
+    let obj_file = match File::parse(&*bin_data) {
+        Ok(obj) => obj,
+        Err(err) =>  {
+            println!("Object not parseable");
+            return false;
+        }
+    };
+
+
+
+    if let Some(_file_type) = obj_file.section_by_name("magic number") {
+        // println!("magic number = {}", _file_type);
+    }
+
+    // ensure elf
+    // elf::CompressionHeader64;
+
+    return true;
+}
+
 // given instruction, update registers and memory (technically cache but for now just update RAM each time
 fn handle_operation(instruction: u32) {
     // instruction: 4 types
