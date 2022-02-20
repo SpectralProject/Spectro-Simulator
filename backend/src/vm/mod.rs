@@ -1,5 +1,5 @@
 // VM
-pub mod vm;
+pub mod tests;
 
 pub struct SpectroVM;
 
@@ -93,13 +93,14 @@ impl CPUView {
         let dst = (0x11111 << 7) & instruction;
 
         // EXECUTE INSTRUCTION
+        /*
         match res {
             &ArithmeticInstruction::ADD => {
                 // add the src 1 and 2 registers to dst
                 // NOTE: signed
                 // ! MAY JUST HAVE TO USE Vec<[u8; 8], 32> and do it manually
                 let _res = self.register_file[src1 as usize] as i64 + self.register_file[src2 as usize] as i64;
-                self.register_file[dst as usize] = _res;
+                self.register_file[dst as usize] = _res as u64;
             }
             &ArithmeticInstruction::SUB => {
                 let _res = self.register_file[src1 as usize] - self.register_file[src2 as usize];
@@ -121,7 +122,7 @@ impl CPUView {
             &ArithmeticInstruction::SLTU => {
                 // set true on less than, unsigned comparison
             }
-        }
+        }*/
 
         // 2. split into instruction keyword, src, dst
 
@@ -185,7 +186,7 @@ enum ArithmeticInstruction {
 
 #[test]
 fn test_handler() {
-    handle_operation(0x0);
+    // handle_operation(0x0);
 
     println!("ADD = {:?}", ArithmeticInstruction::ADD);
     println!("SUB = {:?}", ArithmeticInstruction::SUB);
