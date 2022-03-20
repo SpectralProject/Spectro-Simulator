@@ -1,8 +1,13 @@
 import { Text, Flex, Spacer, Box, Grid } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import React from 'react'
+import ArcWindow from '../../components/arcwin'
+import useScrollBlock from '../../components/scroll_block'
 
 const DesktopEnv: NextPage = () => {
+    const [blockScroll, allowScroll] = useScrollBlock()
+    blockScroll()
+
     return (
         <>
             <Flex flexDir="column" maxH="100vh" h="100vh" color="black">
@@ -16,6 +21,8 @@ const DesktopEnv: NextPage = () => {
                         This is a widget
                     </Grid>
                 </Box>
+                {/* PLACE WINDOW LOGIC HERE. ALSO WHERE BOTTOM DOCK LIVES USUALLY */}
+                <ArcWindow header={null} content={null} />
             </Flex>
         </>
     )
