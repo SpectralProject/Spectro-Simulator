@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 
 /* CREDIT: https://codepen.io/jkasun/pen/QrLjXP */
 
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 
 // TODO: I think the prev did it for every element
 // just have to do it for a single element
@@ -164,9 +164,11 @@ export default function ArcWindow({ header, content }) {
     return (
         <>
             <Box className="popup">
-                <Box className='popup-header' onDoubleClick={handleDoubleClick}>
+                <Flex className='popup-header' onDoubleClick={handleDoubleClick}>
                     {header}
-                </Box>
+                    {/* - button shows when you hover over that area, otherwise hidden */}
+                    {/* x button shows always */}
+                </Flex>
                 <Box>
                     {content}
                 </Box>
