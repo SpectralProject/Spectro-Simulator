@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import React from 'react'
 import ArcWindow from '../../components/arcwin'
 import useScrollBlock from '../../components/scroll_block'
+import { Rnd } from 'react-rnd'
 
 const DesktopEnv: NextPage = () => {
     const [blockScroll, allowScroll] = useScrollBlock()
@@ -21,8 +22,23 @@ const DesktopEnv: NextPage = () => {
                         This is a widget
                     </Grid>
                 </Box>
-                {/* PLACE WINDOW LOGIC HERE. ALSO WHERE BOTTOM DOCK LIVES USUALLY */}
+                {/* PLACE WINDOW LOGIC HERE. ALSO WHERE BOTTOM DOCK LIVES USUALLY 
+                the header is the container row before the X on the right. The entire header is spaced [A A]*/}
                 <ArcWindow header={null} content={null} />
+                {/* TODO: hook onto double click on the header and tell Rnd to resize */}
+                <Rnd
+                    default={{
+                        x: 0,
+                        y: 0,
+                        width: 320,
+                        height: 200,
+                    }}
+                    enableUserSelectHack={false}
+                >
+                    <Box bgColor="red.100" h="100%" w="100%">
+                        Rnd
+                    </Box>
+                </Rnd>
             </Flex>
         </>
     )
