@@ -3,6 +3,7 @@
 ## Structure
 - pages/bios contains the view of the bios
 - pages/arcboot contains the view of the bootloader. By default, fast boot is enabled which skips the bootloader visuals
+- the WindowManager component should handle all the open windows. Windows change the value of show = 0, 1, 2 to close, minimise, show
 
 ### Bios
 
