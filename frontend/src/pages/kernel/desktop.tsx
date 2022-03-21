@@ -1,9 +1,38 @@
-import { Text, Flex, Spacer, Box, Grid } from '@chakra-ui/react'
+import { Text, Flex, Spacer, Box, Grid, useDisclosure, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import React from 'react'
-import ArcWindow from '../../components/arcwin'
 import useScrollBlock from '../../components/scroll_block'
 import { Rnd } from 'react-rnd'
+
+function __Modal() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    return (
+        <>
+            <Button maxW="10rem" onClick={onOpen} color="orange">Open Modal</Button>
+
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>
+                        <Box w="100%" textAlign="center" p="1rem" fontSize="3xl">
+                            <Text>Welcome to ArcDesktop!</Text>
+                        </Box>
+                    </ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='blue' mr={3} onClick={onClose}>
+                            Close
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
+    )
+}
 
 const DesktopEnv: NextPage = () => {
     const [blockScroll, allowScroll] = useScrollBlock()
@@ -18,20 +47,13 @@ const DesktopEnv: NextPage = () => {
     return (
         <>
             <Flex flexDir="column" maxH="100vh" h="100vh" color="white" bgColor="grey">
-                <Box w="100%" textAlign="center" p="1rem" fontSize="3xl">
-                    <Text>Welcome to ArcDesktop!</Text>
-                </Box>
+
+                <__Modal />
                 <Box id="workspaces">
-                    {/* only render the current workspace with dot */}
-                    {/* LIST OF APPS AND WIDGETS ON A GRID */}
                     <Grid>
                         This is a widget
                     </Grid>
                 </Box>
-                {/* PLACE WINDOW LOGIC HERE. ALSO WHERE BOTTOM DOCK LIVES USUALLY 
-                the header is the container row before the X on the right. The entire header is spaced [A A]*/}
-                {/* <ArcWindow header={null} content={null} /> */}
-                {/* TODO: hook onto double click on the header and tell Rnd to resize */}
                 <Rnd
                     default={{
                         x: 0,
@@ -44,13 +66,11 @@ const DesktopEnv: NextPage = () => {
                     enableUserSelectHack={false}
                     disableDragging={contentOver}
                 >
-                    <Box bgColor="orange" cursor="default" h="100%" w="100%">
-                        <Box userSelect="none" className='header' pl="1rem" pt="0.5rem">
+                    <Box bgColor="orange" cursor="default" h="100%" w="100%" p="0.05rem">
+                        <Box userSelect="none" className='header' p="0.5rem">
                             Header
                         </Box>
-                        {/* draggable="false" doesnt work */}
-                        {/* TODO: if trying to drag content, return; */}
-                        <Box cursor="default" color="black" className='content' onMouseEnter={handleMouseOverContent} onMouseLeave={handleMouseOut} bgColor="orange.50" p="0.5rem">
+                        <Box cursor="default" color="black" className='content' onMouseEnter={handleMouseOverContent} onMouseLeave={handleMouseOut} bgColor="orange.50" p="0.5rem" overflow="scroll" overflowY="auto" overflowX="auto" h="70%">
                             Content
                         </Box>
                     </Box>
