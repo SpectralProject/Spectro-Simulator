@@ -66,7 +66,7 @@ const DesktopEnv: NextPage = () => {
                     enableUserSelectHack={false}
                     disableDragging={contentOver}
                 >
-                    <Box bgColor="orange" cursor="default" h="100%" w="100%" p="0.05rem">
+                    <Box bgColor="orange" cursor="default" h="100%" w="100%" p="0.05rem" boxShadow="0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
                         <Box userSelect="none" className='header' p="0.5rem">
                             Header
                         </Box>
