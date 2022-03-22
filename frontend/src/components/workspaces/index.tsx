@@ -38,6 +38,25 @@ function Workspace() {
     )
 }
 
+interface DockProps {
+    favoritedApps: []
+}
+
+const Dock = ({ favoritedApps }: DockProps) => {
+    // Dock contains a list of 'favorited' apps by the workspace and a list of opened apps
+    // if an app has 2 or more instances, render a number on the top right of the app icon
+    // Prioritise opened apps first. Render them left to right with x scroll
+    return (
+        <>
+            {favoritedApps.map(f => (
+                <>
+                    {f}
+                </>
+            ))}
+        </>
+    )
+}
+
 // TODO: initialise with a few windows including the main DE window/desktop (workspace)
 // each workspace contains a set of its own desktop widgets on a 21x9 grid. And a dock with at most 10 pinned or opened windows. Extra windows are scrollable horizontally
 function WinManager() {
@@ -47,10 +66,18 @@ function WinManager() {
         live, minimised
     }
 
-
+    const [liveWindows, setLiveWindows] = React.useState([])
 
     return (
-        <Box>Window Manager</Box>
+        <Box>
+            Window Manager
+            {liveWindows.map(w => (
+                <>
+                    {/* if w.live is true, render window. Else dont */}
+                    {w}
+                </>
+            ))}
+        </Box>
     )
 }
 
