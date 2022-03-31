@@ -1,5 +1,6 @@
 import { Flex } from "@chakra-ui/react"
 import React from "react"
+import { Circle, CircleFill } from 'react-bootstrap-icons'
 
 // should latch onto window and render it there
 // {...{ titleWidgets: null, contentWidgets: null }}
